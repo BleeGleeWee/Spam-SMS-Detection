@@ -2,7 +2,7 @@
 
 ---
 
-# 📩 SMS Spam Detection ML Project
+# 📩 Spam SMS Detection ML Project
 
 ## 📌 Project Objective
 The goal of this project is to build and deploy a machine learning model that can classify SMS messages as **Spam** or **Ham** (Not Spam).  
