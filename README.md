@@ -1,4 +1,4 @@
-Awesome! Here's a **perfect GitHub README structure** you can directly use for your **SMS Spam Detection** project: 🚀
+**perfect GitHub README structure** for **SMS Spam Detection** project: 🚀
 
 ---
 
