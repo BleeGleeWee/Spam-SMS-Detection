@@ -43,8 +43,8 @@ The model is trained using a labeled dataset and deployed for real-world testing
 ## 📊 Model Performance
 | Metric | Score |
 |:------:|:-----:|
-| Accuracy | 96% |
-| Precision | 97% |
+| Accuracy | 97.9% |
+| Precision | 97.5% |
 | Recall | 96% |
 
 
