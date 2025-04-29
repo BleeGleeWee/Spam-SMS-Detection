@@ -1,4 +1,4 @@
-**perfect GitHub README structure** for **SMS Spam Detection** project: 🚀
+**GitHub README structure** for **SMS Spam Detection** project: 🚀
 
 ---
 
@@ -15,89 +15,136 @@ The model is trained using a labeled dataset and deployed for real-world testing
 - Scikit-Learn
 - Pandas, Numpy
 - Natural Language Processing (NLP)
-- Streamlit (for deployment) *(if you're using deployment tutorial)*
-- Heroku / Render *(optional for web deployment)*
+- NLTK
+- Streamlit (for deployment) 
+- Heroku / Render (optional for web deployment)
 
 ---
 
 ## 📚 Dataset
 - **Dataset Source**: [Kaggle - SMS Spam Collection Dataset](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
-- **Description**: 5,500 SMS messages labeled as Spam or Ham.
+- **Description**: 5,500 SMS messages labeled as Spam or Not Spam.
 
 ---
 
-## ⚙️ Steps to Run the Project
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/sms-spam-detection.git
-   cd sms-spam-detection
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Run the Jupyter Notebook or Python script:
-   ```bash
-   jupyter notebook sms_spam_detection.ipynb
-   ```
-
-4. *(Optional)* For deployed app:
-   ```bash
-   streamlit run app.py
-   ```
+## 📊 Project Stages
+1. **Data Cleaning**
+2. **Exploratory Data Analysis** (EDA)
+3. **Text Preprocessing** (tokenization, stemming, etc.)
+4. **Model Building** (Naive Bayes, Logistic Regression, etc.)
+5. **Vectorization** (TF-IDF, GridSearchCV)
+6. **Model Evaluation** (Accuracy, Precision, Recall, F1 Score)
+7. **PyCharm App Development** (Over Streamlit)
+8. **Heroku Deployment**
 
 ---
 
-## 📈 Project Pipeline
-- **Data Cleaning**  
-- **Text Preprocessing** (lowercasing, removing punctuation, stopwords)
-- **Vectorization** (TF-IDF / CountVectorizer)
-- **Model Building** (Naive Bayes / Logistic Regression)
-- **Model Evaluation** (Accuracy, Precision, Recall, F1 Score)
-- **Deployment** (Streamlit web app)
-
----
 
 ## 📊 Model Performance
 | Metric | Score |
 |:------:|:-----:|
 | Accuracy | 96% |
-| Precision | 95% |
+| Precision | 97% |
 | Recall | 96% |
 
-*(Update your exact scores after training.)*
 
 ---
 
 ## 🚀 Deployment
-> The SMS Spam Detection model is deployed and accessible online!  
-> *(Add your deployment link here if you deploy it.)*
+> The SMS Spam Detection model is deployable on Heroku and accessible online!  
 
-Example:  
-[Live App](https://yourappname.herokuapp.com/)
+---
+
+
+## ⚙️ Steps to Run the Project
+
+### 1. Clone the repository:
+   ```bash
+   git clone https://github.com/BleeGleeWee/Spam-SMS-Detection.git
+   cd Spam-SMS-Detection
+   ```
+
+### 2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### 3. Run the Jupyter Notebook:
+   ```bash
+   jupyter notebook spam_sms_detection.ipynb
+   ```
+
+### 4. For deployed app:
+   ```bash
+   streamlit run app.py
+   ```
+
+### 5. Deploy on Heroku
+- Install Heroku CLI
+- Run the following:
+```bash
+heroku login
+heroku create spam-classifier-app
+git push heroku main
+```
+
+
+---
+
+# 🌟 FINAL SHOWDOWN:
+
+![Screenshot 2025-04-30 031950](https://github.com/user-attachments/assets/4e04aa6d-0d00-4950-a30d-4c159aa33f64)
+
+
+![Screenshot 2025-04-30 031826](https://github.com/user-attachments/assets/6c79e49a-5fad-4101-9cd5-8d3408d0359a)
+
+---
+
+
+```
+Email/SMS-spam-classifier
+│
+├── data/
+│   └── spam.csv                         # Original dataset (or link to download in README)
+│
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb           # Handling nulls, duplicates, formatting
+│   ├── 02_eda.ipynb                     # Visualizations and exploratory analysis
+│   ├── 03_text_preprocessing.ipynb      # Tokenization, stemming, stopword removal
+│   ├── 04_model_building.ipynb          # Naive Bayes, Logistic Regression, etc.
+│   └── 05_model_improvement.ipynb       # TF-IDF, hyperparameter tuning, evaluation
+│
+├── models/
+│   ├── model.pkl                        # Serialized trained model (pickle)
+|   └── vectorizer.pkl                   # Trained model then vectorized
+│
+├── app/
+│   ├── app.py                           # App entry point
+│   ├── predict.py                       # Handles input, loads model, returns prediction
+│   ├── model_loader.py                  # Utility to load the model
+│   └── train_model.py                   # Training model before testing   
+│                       
+│
+├── static/
+│   └── setup.sh                         # Web Design
+│
+├── tests/
+│   └── test_predict.py                  # Unit tests for prediction logic
+│
+├── .gitignore                           # Ignore notebooks checkpoints, model files, etc.
+├── Procfile                             # For Heroku: e.g., `web: gunicorn app.main:app`
+├── requirements.txt                     # All dependencies (Flask/FastAPI, sklearn, etc.)
+├── nltk.txt                             # NLTK dependencies (stopwords, punkt)
+├── README.md                            # Full documentation 
+└── LICENSE                              # MIT or any preferred open-source license
+```
+
 
 ---
 
 ## 🤝 Contact
 - **Name:** Shyamanjali Nanda
-- **Email:** your.email@example.com
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
-- **GitHub:** [Your GitHub Profile](https://github.com/your-username)
+- **Email:** shyamanjalinanda@gmail.com
+- **GitHub:** [](https://github.com/BleeGleeWee)
 
 ---
-
-# 🌟 Bonus Tip:
-- Add **2-3 screenshots** of your Streamlit app output.
-- Keep code **well-commented** inside the notebook/script.
-- Add a **requirements.txt** file using:
-  ```bash
-  pip freeze > requirements.txt
-  ```
-
----
-  
-Would you also like me to quickly show you a **folder structure** you should keep inside your repo? 📁  
-(It'll make your project look professional!) 🌟
