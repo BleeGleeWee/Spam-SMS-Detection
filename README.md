@@ -143,8 +143,6 @@ Email/SMS-spam-classifier
 ---
 
 ## 🤝 Contact
-- **Name:** Shyamanjali Nanda
-- **Email:** shyamanjalinanda@gmail.com
-- **GitHub:** [](https://github.com/BleeGleeWee)
+- **Email:** pralsaiyre@gmail.com
 
 ---
