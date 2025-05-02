@@ -87,6 +87,9 @@ heroku login
 heroku create spam-classifier-app
 git push heroku main
 ```
+- Deployed link✨ 
+[**Here**](https://spam-sms-classifier.herokuapp.com/)
+
 
 
 ---
