@@ -1,5 +1,3 @@
-**GitHub README structure** for **SMS Spam Detection** project: 🚀
-
 ---
 
 # 📩 Spam SMS Detection ML Project
