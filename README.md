@@ -144,7 +144,3 @@ Email/SMS-spam-classifier
 
 ---
 
-## 🤝 Contact
-- **Email:** pralsaiyre@gmail.com
-
----
