@@ -78,7 +78,7 @@ The model is trained using a labeled dataset and deployed for real-world testing
 ### 5. Deploy
 (Streamlit)
 - Deployed link✨ 
-[**Here**](http://172.18.15.76:8501)
+[**Here**](https://spam-sms-detection-ml.streamlit.app/)
 
 
 
