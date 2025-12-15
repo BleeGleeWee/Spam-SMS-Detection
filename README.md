@@ -76,14 +76,6 @@ The model is trained using a labeled dataset and deployed for real-world testing
    ```
 
 ### 5. Deploy
-(Heroku)
-- Install Heroku CLI
-- Run the following:
-```bash
-heroku login
-heroku create spam-classifier-app
-git push heroku main
-```
 (Streamlit)
 - Deployed link✨ 
 [**Here**](http://172.18.15.76:8501)
@@ -122,19 +114,10 @@ Email/SMS-spam-classifier
 │
 ├── app/
 │   ├── app.py                           # App entry point
-│   ├── predict.py                       # Handles input, loads model, returns prediction
-│   ├── model_loader.py                  # Utility to load the model
+│   ├── main.py                  # Utility to load the model
 │   └── train_model.py                   # Training model before testing   
-│                       
-│
-├── static/
-│   └── setup.sh                         # Web Design
-│
-├── tests/
-│   └── test_predict.py                  # Unit tests for prediction logic
 │
 ├── .gitignore                           # Ignore notebooks checkpoints, model files, etc.
-├── Procfile                             # For Heroku: e.g., `web: gunicorn app.main:app`
 ├── requirements.txt                     # All dependencies (Flask/FastAPI, sklearn, etc.)
 ├── nltk.txt                             # NLTK dependencies (stopwords, punkt)
 ├── README.md                            # Full documentation 
