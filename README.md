@@ -15,7 +15,6 @@ The model is trained using a labeled dataset and deployed for real-world testing
 - Natural Language Processing (NLP)
 - NLTK
 - Streamlit (for deployment) 
-- Heroku / Render (optional for web deployment)
 
 ---
 
@@ -33,7 +32,6 @@ The model is trained using a labeled dataset and deployed for real-world testing
 5. **Vectorization** (TF-IDF, GridSearchCV)
 6. **Model Evaluation** (Accuracy, Precision, Recall, F1 Score)
 7. **PyCharm App Development** (Over Streamlit)
-8. **Heroku Deployment**
 
 ---
 
@@ -49,7 +47,7 @@ The model is trained using a labeled dataset and deployed for real-world testing
 ---
 
 ## 🚀 Deployment
-> The SMS Spam Detection model is deployable on Heroku and accessible online!  
+> The SMS Spam Detection model is deployable on Streamlit and accessible online!  
 
 ---
 
