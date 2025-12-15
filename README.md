@@ -86,11 +86,13 @@ The model is trained using a labeled dataset and deployed for real-world testing
 
 # 🌟 FINAL SHOWDOWN:
 
-![Screenshot 2025-04-30 031950](https://github.com/user-attachments/assets/4e04aa6d-0d00-4950-a30d-4c159aa33f64)
+<img width="1114" height="700" alt="image" src="https://github.com/user-attachments/assets/fa4bf003-d6e7-42ce-a12d-ec47679b5c2d" />
+
 
 #
 
-![Screenshot 2025-04-30 031826](https://github.com/user-attachments/assets/6c79e49a-5fad-4101-9cd5-8d3408d0359a)
+<img width="1119" height="670" alt="Screenshot 2025-12-16 035317" src="https://github.com/user-attachments/assets/b8917a91-8bf7-4fcd-ae33-0446f0be3462" />
+
 
 ---
 
