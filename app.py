@@ -6,6 +6,13 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
+from nltk.tokenize import wordpunct_tokenize
+import nltk
+nltk.download("punkt")
+nltk.download("punkt_tab")
+nltk.download("stopwords")
+
+
 
 # ----------------- Page Config -----------------
 st.set_page_config(page_title="Spam Classifier", layout="centered")
@@ -53,7 +60,7 @@ is_dark = current_theme == "dark"
 # ----------------- Text Processing -----------------
 def transform_text(text):
     text = text.lower()
-    text = nltk.word_tokenize(text)
+    text = wordpunct_tokenize(text)
     text = [i for i in text if i.isalnum()]
     text = [i for i in text if i not in stopwords.words("english")]
     text = [ps.stem(i) for i in text]
