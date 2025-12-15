@@ -77,7 +77,8 @@ The model is trained using a labeled dataset and deployed for real-world testing
    streamlit run app.py
    ```
 
-### 5. Deploy on Heroku
+### 5. Deploy
+(Heroku)
 - Install Heroku CLI
 - Run the following:
 ```bash
@@ -85,8 +86,9 @@ heroku login
 heroku create spam-classifier-app
 git push heroku main
 ```
+(Streamlit)
 - Deployed link✨ 
-[**Here**](https://spam-sms-classifier.herokuapp.com/)
+[**Here**](http://172.18.15.76:8501)
 
 
 
