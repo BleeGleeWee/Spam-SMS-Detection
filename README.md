@@ -1,6 +1,7 @@
----
-
 # 📩 Spam SMS Detection ML Project
+- Deployed link✨ 
+[**Here**](https://spam-sms-detection-ml.streamlit.app/)
+
 
 ## 📌 Project Objective
 The goal of this project is to build and deploy a machine learning model that can classify SMS messages as **Spam** or **Ham** (Not Spam).  
@@ -46,11 +47,6 @@ The model is trained using a labeled dataset and deployed for real-world testing
 
 ---
 
-## 🚀 Deployment
-> The SMS Spam Detection model is deployable on Streamlit and accessible online!  
-
----
-
 
 ## ⚙️ Steps to Run the Project
 
@@ -74,13 +70,6 @@ The model is trained using a labeled dataset and deployed for real-world testing
    ```bash
    streamlit run app.py
    ```
-
-### 5. Deploy
-(Streamlit)
-- Deployed link✨ 
-[**Here**](https://spam-sms-detection-ml.streamlit.app/)
-
-
 
 ---
 
