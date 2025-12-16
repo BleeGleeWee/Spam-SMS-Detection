@@ -7,6 +7,12 @@ from nltk.stem.porter import PorterStemmer
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 from nltk.tokenize import wordpunct_tokenize
+import nltk
+nltk.download("punkt")
+nltk.download("punkt_tab")
+nltk.download("stopwords")
+
+
 
 # ----------------- Page Config -----------------
 st.set_page_config(page_title="Spam Classifier", layout="centered")
@@ -49,6 +55,25 @@ if "theme" in query_params and st.session_state.theme != query_params["theme"]:
 
 current_theme = st.session_state.theme
 is_dark = current_theme == "dark"
+
+
+# ----------------- Text Processing -----------------
+def transform_text(text):
+    text = text.lower()
+    text = wordpunct_tokenize(text)
+    text = [i for i in text if i.isalnum()]
+    text = [i for i in text if i not in stopwords.words("english")]
+    text = [ps.stem(i) for i in text]
+    return " ".join(text)
+
+
+# ----------------- Load Model -----------------
+try:
+    tfidf = pickle.load(open("vectorizer.pkl", "rb"))
+    model = pickle.load(open("model.pkl", "rb"))
+except FileNotFoundError:
+    st.error("🚨 Error: Model files not found. Please check 'vectorizer.pkl' and 'model.pkl'.")
+    st.stop()
 
 # ----------------- BACKGROUNDS (VIVID GRADIENTS) -----------------
 
@@ -202,6 +227,44 @@ predict = col1.button("🚀 Predict")
 analyze = col2.button("📈 Analyze")
 # FIXED CLEAR BUTTON: specific on_click callback
 clear = col3.button("🧹 Clear", on_click=handle_clear)
+# ----------------- LOGIC -----------------
+
+if predict:
+    st.session_state.clear_message = None
+    if not input_sms.strip():
+        st.warning("⚠️ Please type a message first.")
+    else:
+        # Preprocess & Predict
+        transformed_sms = transform_text(input_sms)
+        vector = tfidf.transform([transformed_sms])
+        result = model.predict(vector)[0]
+        prob = model.predict_proba(vector)[0][1]
+
+        if result == 1:
+            st.error(f"🚨 **Spam Detected** (Confidence: {prob * 100:.1f}%)")
+        else:
+            st.success(f"✅ **Not Spam** (Confidence: {(1 - prob) * 100:.1f}%)")
+
+if analyze:
+    st.session_state.clear_message = None
+    if not input_sms.strip():
+        st.warning("⚠️ Please type a message first.")
+    else:
+        # Dummy ROC for single input illustration
+        y_true = [0, 1]
+        probs = model.predict_proba(tfidf.transform([transform_text(input_sms)] * 2))[:, 1]
+        fpr, tpr, _ = roc_curve(y_true, probs)
+        roc_auc = auc(fpr, tpr)
+
+        fig, ax = plt.subplots()
+        ax.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
+        ax.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+        ax.set_xlabel('False Positive Rate')
+        ax.set_ylabel('True Positive Rate')
+        ax.set_title('Receiver Operating Characteristic')
+        ax.legend(loc="lower right")
+        st.pyplot(fig)
+        st.info("ℹ️ Note: ROC curve is illustrative for single input.")
 
 if clear:
     # Logic to clear the text area
@@ -222,6 +285,3 @@ if clear:
 
 st.markdown("---")
 st.caption("🔓 Free public Streamlit Cloud deployment ready")
-
-
-
