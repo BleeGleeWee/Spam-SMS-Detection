@@ -39,7 +39,7 @@ def transform_text(text):
 
     return " ".join(y)
 
-# 1. Load your dataset (replace this with your actual data path)
+# 1. Loading dataset
 df = pd.read_csv("spam.csv", encoding='latin-1')[["v1", "v2"]]
 df.columns = ['label', 'text']
 
@@ -70,3 +70,4 @@ with open('vectorizer.pkl', 'wb') as f:
 
 with open('model.pkl', 'wb') as f:
     pickle.dump(model, f)
+
