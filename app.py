@@ -14,15 +14,15 @@ nltk.download("stopwords")
 
 
 
-# ----------------- Page Config -----------------
+# Page Config
 st.set_page_config(page_title="Spam Classifier", layout="centered")
 nltk.download("punkt")
 nltk.download("stopwords")
 
 ps = PorterStemmer()
 
-# ----------------- Session State Initialization -----------------
-# We use a specific key 'input_sms_text' for the widget to ensure 2-way binding
+# Session state initialization
+#specific key 'input_sms_text' for the widget to ensure 2-way binding
 if "input_sms_text" not in st.session_state:
     st.session_state.input_sms_text = ""
 
@@ -32,7 +32,7 @@ if "theme" not in st.session_state:
 if "clear_message" not in st.session_state:
     st.session_state.clear_message = None
 
-# ----------------- CALLBACK FUNCTIONS (The Fix) -----------------
+# "CALLBACK FUNCTIONS" (The Fix)
 def handle_clear():
     """
     This function runs immediately when Clear is clicked,
@@ -46,8 +46,7 @@ def handle_clear():
         "You can now safely enter a new Email or SMS message."
     )
 
-# ----------------- THEME LOGIC -----------------
-# Check URL query parameter to trigger theme switch
+# UI
 query_params = st.query_params
 if "theme" in query_params and st.session_state.theme != query_params["theme"]:
     st.session_state.theme = query_params["theme"]
@@ -57,7 +56,7 @@ current_theme = st.session_state.theme
 is_dark = current_theme == "dark"
 
 
-# ----------------- Text Processing -----------------
+#Text processing
 def transform_text(text):
     text = text.lower()
     text = wordpunct_tokenize(text)
@@ -67,7 +66,7 @@ def transform_text(text):
     return " ".join(text)
 
 
-# ----------------- Load Model -----------------
+# Loading Model
 try:
     tfidf = pickle.load(open("vectorizer.pkl", "rb"))
     model = pickle.load(open("model.pkl", "rb"))
@@ -75,26 +74,23 @@ except FileNotFoundError:
     st.error("🚨 Error: Model files not found. Please check 'vectorizer.pkl' and 'model.pkl'.")
     st.stop()
 
-# ----------------- BACKGROUNDS (VIVID GRADIENTS) -----------------
-
-# DARK MODE: Deep Blue -> Purple -> Black
+# UI
 dark_bg_css = """
 background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
 background-size: 400% 400%;
 animation: gradientBG 15s ease infinite;
 """
 
-# LIGHT MODE: Bright Pink -> Yellow -> Orange (Vivid)
 light_bg_css = """
 background: linear-gradient(135deg, #ff9a9e, #fecfef, #f6d365, #fda085);
 background-size: 400% 400%;
 animation: gradientBG 15s ease infinite;
 """
 
-# Select CSS based on current theme state
+# toggle
 selected_bg = dark_bg_css if is_dark else light_bg_css
 
-# ----------------- CSS INJECTION -----------------
+# css input
 st.markdown(f"""
 <style>
 /* Global Reset */
@@ -143,7 +139,7 @@ button:hover {{ transform: scale(1.05); }}
 /* Footer Hidden */
 footer {{ visibility: hidden; }}
 
-/* ---- TOGGLE SWITCH CSS ---- */
+/* ! TOGGLE SWITCH CSS ! */
 .toggle-wrapper {{
     position: fixed;
     top: 50px;
@@ -189,8 +185,7 @@ footer {{ visibility: hidden; }}
 </style>
 """, unsafe_allow_html=True)
 
-# ----------------- TOGGLE BUTTON HTML -----------------
-# Clicking this link updates the URL parameter 'theme', forcing a page rerun
+# reload after toggle
 toggle_link = f"?theme={'light' if is_dark else 'dark'}"
 st.markdown(f"""
 <div class="toggle-wrapper">
@@ -204,7 +199,7 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ----------------- MAIN UI -----------------
+# app UI
 st.title("📧 Email / SMS Spam Classifier")
 
 # 1. SUCCESS MESSAGE LOGIC
@@ -227,8 +222,8 @@ predict = col1.button("🚀 Predict")
 analyze = col2.button("📈 Analyze")
 # FIXED CLEAR BUTTON: specific on_click callback
 clear = col3.button("🧹 Clear", on_click=handle_clear)
-# ----------------- LOGIC -----------------
 
+# Check
 if predict:
     st.session_state.clear_message = None
     if not input_sms.strip():
@@ -285,3 +280,4 @@ if clear:
 
 st.markdown("---")
 st.caption("🔓 Free public Streamlit Cloud deployment ready")
+
